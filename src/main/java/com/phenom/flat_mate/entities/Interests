@@ -97,15 +97,5 @@ public class Interests {
         this.reasonForRejection = reasonForRejection;
     }
 
-    @Override
-    public String toString() {
-        return "Interests{" +
-                "interestId=" + interestId +
-                ", house=" + (house != null ? house.getId() : null) +
-                ", user=" + (user != null ? user.getId() : null) +
-                ", dateOfInterest=" + dateOfInterest +
-                ", status='" + status + '\'' +
-                ", reasonForRejection='" + reasonForRejection + '\'' +
-                '}';
-    }
+    
 }
