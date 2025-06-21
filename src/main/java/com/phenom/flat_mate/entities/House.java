@@ -1,9 +1,9 @@
 package com.phenom.flat_mate.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class House {
@@ -14,6 +14,13 @@ public class House {
     private String title;
     private String location;
     private int bhk;
-    private double rent;
     private boolean furnished;
+
+    private String status;
+    private String roomType;
+    private Double rent;
+    private Integer roomCount;
+
+    @OneToMany(mappedBy = "house", cascade = CascadeType.ALL)
+    private List<HouseImages> images = new ArrayList<>();
 }
