@@ -13,8 +13,8 @@ public class House {
 
     private String title;
     private String location;
-    private int bhk;
-    private boolean furnished;
+    private Integer bhk;
+    private Boolean furnished;
 
     private String status;
     private String roomType;
