@@ -70,7 +70,7 @@ public class RentalAgreementControllerTest {
     void testGetByOwner() throws Exception {
         RentalAgreement agreement = new RentalAgreement();
         agreement.setOwnerId("owner1");
-        OngoingStubbing<com.phenom.flat_mate.entities.RentalAgreement> owner1 = when(rentalAgreementServiceImpl.findByOwnerId("owner1")).thenReturn(agreement);
+        when(rentalAgreementServiceImpl.findByOwnerId("owner1")).thenReturn(agreement)
 
         mockMvc.perform(get("/api/rental-agreements/owner/owner1"))
                 .andExpect(status().isOk());
