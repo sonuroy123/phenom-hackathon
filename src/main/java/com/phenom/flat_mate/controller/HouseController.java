@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/houses")
@@ -20,12 +21,9 @@ class HouseController {
 
     @PostMapping("/search")
     public ResponseEntity<Page<House>> searchHouses(
-            @RequestBody HouseSearchCriteria criteria,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
+            @RequestBody HouseSearchCriteria criteria) {
 
-        Pageable pageable = PageRequest.of(page, size);
-        Page<House> result = houseService.searchHouses(criteria, pageable);
+        Page<House> result = houseService.searchHouses(criteria);
         return ResponseEntity.ok(result);
     }
 }

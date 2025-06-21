@@ -6,5 +6,5 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface HouseService {
-    Page<House> searchHouses(HouseSearchCriteria criteria, Pageable pageable);
+    Page<House> searchHouses(HouseSearchCriteria criteria);
 }
