@@ -1,9 +1,13 @@
 package com.phenom.flat_mate.entities;
 
-import jakarta.persistence.*;
-
-import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class House {
@@ -13,14 +17,67 @@ public class House {
 
     private String title;
     private String location;
-    private Integer bhk;
-    private Boolean furnished;
+    private int bhk;
+    private double rent;
+    private boolean furnished;
 
-    private String status;
-    private String roomType;
-    private Double rent;
-    private Integer roomCount;
+    @OneToMany(mappedBy = "house", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Interests> interests;
 
-    @OneToMany(mappedBy = "house", cascade = CascadeType.ALL)
-    private List<HouseImages> images = new ArrayList<>();
+    // Getters and Setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getBhk() {
+        return bhk;
+    }
+
+    public void setBhk(int bhk) {
+        this.bhk = bhk;
+    }
+
+    public double getRent() {
+        return rent;
+    }
+
+    public void setRent(double rent) {
+        this.rent = rent;
+    }
+
+    public boolean isFurnished() {
+        return furnished;
+    }
+
+    public void setFurnished(boolean furnished) {
+        this.furnished = furnished;
+    }
+
+    public List<Interests> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(List<Interests> interests) {
+        this.interests = interests;
+    }
 }
