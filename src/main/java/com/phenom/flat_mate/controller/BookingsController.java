@@ -1,6 +1,6 @@
 package com.phenom.flat_mate.controller;
 
-import com.phenom.flat_mate.entities.Bookings;
+import com.phenom.flat_mate.entities.Booking;
 import com.phenom.flat_mate.services.BookingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +16,12 @@ public class BookingsController {
     private BookingsService bookingsService;
 
     @PostMapping
-    public ResponseEntity<Bookings> createBooking(@RequestBody Bookings booking) {
+    public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
         return ResponseEntity.ok(bookingsService.createBooking(booking));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Bookings> getBookingById(@PathVariable Long id) {
+    public ResponseEntity<Booking> getBookingById(@PathVariable Long id) {
         return ResponseEntity.ok(bookingsService.getBookingById(id));
     }
 
