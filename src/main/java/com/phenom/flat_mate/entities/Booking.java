@@ -1,3 +1,4 @@
+package com.phenom.flat_mate.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

@@ -1,10 +1,13 @@
 package com.phenom.flat_mate.services;
+import com.phenom.flat_mate.repository.BookingRepository;
+import com.phenom.flat_mate.entities.Booking;
+import org.springframework.stereotype.Service;
 
-import com.phenom.flat_mate.entities.Bookings;
 import java.util.List;
 
+@Service
 public interface BookingsService {
-    Bookings createBooking(Bookings booking);
-    Bookings getBookingById(Long id);
+    Booking createBooking(Booking booking);
+    Booking getBookingById(Long id);
     void deleteBooking(Long id);
 }
